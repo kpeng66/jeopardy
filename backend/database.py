@@ -19,7 +19,7 @@ def create_tables():
         db.execute("""
                    CREATE TABLE IF NOT EXISTS players (
                    id INTEGER PRIMARY KEY AUTOINCREMENT,
-                   name TEXT NOT NULL
+                   name TEXT NOT NULL,
                    game_id INTEGER,
                    FOREIGN KEY (game_id) REFERENCES games(id)
                    )
