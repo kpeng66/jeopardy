@@ -1,4 +1,4 @@
-from fastapi import FastAPI, HTTPException
+from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 import uuid
@@ -18,20 +18,3 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"]
 )
-
-@app.on_event("startup")
-def startup_event():
-    create_tables() # Create tables on startup
-
-class Player(BaseModel):
-    name: str
-
-@app.post("/players/")
-async def create_player(player: Player):
-    conn = get_db()
-    cursor = conn.cursor()
-    cursor.execute('INSERT INTO players (name) VALUES (?)', (player.name,))
-    conn.commit()
-    conn.close()
-    return {"name": player.name}
-
