@@ -1,11 +1,14 @@
-import './App.css';
+import React from 'react';
+import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
 import HomeScreen from './components/HomeScreen';
 
-function App() {
+const App: React.FC = () => {
   return (
-    <div className="App">
-      <HomeScreen />
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<HomeScreen />} />
+      </Routes>
+    </Router>
   );
 }
 

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { Button, Typography, Box} from '@mui/material';
 import axios from 'axios';
 
@@ -25,7 +25,7 @@ const HomeScreen: React.FC = () => {
             <Typography variant="h3" component="h1" className="mb-8">
                 Jeopardy
             </Typography>
-            <Button variant="contained" color="primary" className="w-full mb-4">
+            <Button variant="contained" color="primary" className="w-full mb-4" onClick={handleLogin}>
                 Sign in with Google
             </Button>
             <Button variant="contained" color="primary" className="w-full mb-4">
