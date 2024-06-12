@@ -6,6 +6,12 @@ from starlette.requests import Request
 import requests
 from jose import jwt
 from urllib.parse import urlencode
+from dotenv import load_dotenv
+import os
+
+load_dotenv()
+
+GOOGLE_CLIENT_SECRET = os.getenv("GOOGLE_CLIENT_SECRET")
 
 origins = [
     "http://localhost:3000/",
